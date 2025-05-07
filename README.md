@@ -1,1 +1,1 @@
-# hajinjang-epi.github.io
+# hajinjang-epidemiology.github.io
