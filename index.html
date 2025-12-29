@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yoonkyoung Cho - Academic Homepage</title>
+    <meta name="description" content="Academic homepage of Yoonkyoung Cho" />
+
+    <!-- Icons (Font Awesome) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root{
+        --bg: #ffffff;
+        --text: #101828;
+        --muted: #667085;
+        --border: #eaecf0;
+        --card: #ffffff;
+        --shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
+        --accent: #0b76ff;
+        --accent-2: #111827;
+        --radius: 14px;
+        --max: 1100px;
+        --sidebar: 340px;
+        --space: 18px;
+        --space-lg: 26px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+
+      *{ box-sizing: border-box; }
+      html, body{ height: 100%; }
+      body{
+        margin: 0;
+        font-family: var(--font);
+        color: var(--text);
+        background: linear-gradient(180deg, #fafbff, #ffffff 180px);
+      }
+
+      a{ color: inherit; text-decoration: none; }
+      a:hover{ color: var(--accent); }
+      .container{
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 28px 18px;
+      }
+
+      /* Layout */
+      .grid{
+        display: grid;
+        grid-template-columns: var(--sidebar) 1fr;
+        gap: 26px;
+        align-items: start;
+      }
+
+      @media (max-width: 980px){
+        .grid{ grid-template-columns: 1fr; }
+        .sidebar{ position: static !important; }
+      }
+
+      /* Sidebar */
+      .sidebar{
+        position: sticky;
+        top: 18px;
+      }
+      .card{
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .sidebar .card{
+        padding: 22px;
+      }
+
+      .name{
+        font-size: 28px;
+        font-weight: 750;
+        letter-spacing: -0.4px;
+        margin: 0 0 6px 0;
+      }
+      .role{
+        margin: 0 0 14px 0;
+        color: var(--muted);
+        font-weight: 550;
+      }
+
+      .email{
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fbfbfd;
+        width: 100%;
+      }
+      .email .addr{
+        font-family: var(--mono);
+        font-size: 13px;
+        color: #1f2937;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .icon-row{
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+        flex-wrap: wrap;
+      }
+      .icon-btn{
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+      }
+      .icon-btn:hover{
+        border-color: rgba(11, 118, 255, 0.35);
+        box-shadow: 0 10px 22px rgba(11, 118, 255, 0.12);
+        transform: translateY(-1px);
+        transition: 160ms ease;
+      }
+
+      .mini-timeline{
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+      }
+      .mini-item{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px 0;
+      }
+      .mini-date{
+        color: var(--muted);
+        font-size: 12px;
+        font-family: var(--mono);
+      }
+      .mini-text{
+        font-weight: 600;
+        color: #111827;
+      }
+
+      /* Main */
+      .main{
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .section{
+        padding: 22px 22px 16px 22px;
+      }
+      .section + .section{ margin-top: 0; }
+
+      .section h2{
+        margin: 0 0 12px 0;
+        font-size: 18px;
+        letter-spacing: -0.2px;
+      }
+      .section p{
+        margin: 0;
+        line-height: 1.65;
+        color: #1f2937;
+      }
+
+      .divider{
+        height: 1px;
+        background: var(--border);
+        margin: 18px 0;
+      }
+
+      /* News list */
+      .list{
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .news-item{
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 12px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #ffffff;
+      }
+      .news-date{
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 12px;
+        padding-top: 2px;
+      }
+      .news-text{
+        color: #111827;
+        font-weight: 560;
+      }
+      .pill{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 12px;
+        color: #374151;
+        background: #fbfbfd;
+      }
+
+      /* Education rows */
+      .edu{
+        display: grid;
+        gap: 12px;
+      }
+      .row{
+        padding: 12px 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #ffffff;
+      }
+      .row .top{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .row .org{
+        font-weight: 700;
+        color: #111827;
+      }
+      .row .meta{
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .row .desc{
+        margin-top: 6px;
+        color: #374151;
+        line-height: 1.6;
+      }
+
+      /* Publications */
+      .pub-year{
+        margin-top: 6px;
+        font-weight: 800;
+        font-size: 16px;
+      }
+      .pub{
+        margin-top: 10px;
+        display: grid;
+        gap: 10px;
+      }
+      .pub-item{
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #ffffff;
+      }
+      .pub-title{
+        font-weight: 700;
+        color: #111827;
+        line-height: 1.45;
+      }
+      .pub-authors{
+        margin-top: 6px;
+        color: #374151;
+        line-height: 1.55;
+      }
+      .pub-venue{
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .tag{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(11, 118, 255, 0.25);
+        color: #0b76ff;
+        background: rgba(11, 118, 255, 0.06);
+        font-size: 12px;
+        font-weight: 650;
+      }
+
+      /* Footer */
+      .footer{
+        padding: 14px 22px;
+        color: var(--muted);
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* Top nav (mobile friendly) */
+      .topnav{
+        display: none;
+        margin-bottom: 10px;
+      }
+      @media (max-width: 980px){
+        .topnav{ display: block; }
+        .topnav .card{ padding: 12px; }
+        .jump{
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .jump a{
+          font-size: 12px;
+          padding: 8px 10px;
+          border: 1px solid var(--border);
+          border-radius: 999px;
+          background: #ffffff;
+        }
+      }
+
+      /* Subtle scroll offset for anchors */
+      section{ scroll-margin-top: 16px; }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="topnav">
+        <div class="card">
+          <div class="jump">
+            <a href="#about">About</a>
+            <a href="#news">News</a>
+            <a href="#education">Education</a>
+            <a href="#publications">Publications</a>
+            <a href="#presentations">Presentations</a>
+            <a href="#vitae">Vitae</a>
+            <a href="#experience">Experience</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="card">
+            <h1 class="name">Yoonkyoung Cho</h1>
+            <p class="role">PhD candidate at the University of Michigan</p>
+
+            <a class="email" href="mailto:yoonkcho@umich.edu" aria-label="Email">
+              <i class="fa-regular fa-envelope"></i>
+              <span class="addr">yoonkcho@umich.edu</span>
+            </a>
+
+            <div class="icon-row" aria-label="Links">
+              <!-- Replace # with your real links -->
+              <a class="icon-btn" href="#" title="Download CV (PDF)">
+                <i class="fa-solid fa-download"></i>
+              </a>
+              <a class="icon-btn" href="#" title="Google Scholar">
+                <i class="fa-brands fa-google-scholar"></i>
+              </a>
+              <a class="icon-btn" href="#" title="ORCID">
+                <i class="fa-brands fa-orcid"></i>
+              </a>
+              <a class="icon-btn" href="#" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a class="icon-btn" href="#" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+
+            <div class="mini-timeline" aria-label="Quick timeline">
+              <div class="mini-item">
+                <div class="mini-date">Aug. 2024 - Present</div>
+                <div class="mini-text">University of Michigan</div>
+              </div>
+              <div class="mini-item">
+                <div class="mini-date">Mar. 2021 - Feb. 2024</div>
+                <div class="mini-text">Korea University (MS)</div>
+              </div>
+              <div class="mini-item">
+                <div class="mini-date">Mar. 2017 - Feb. 2021</div>
+                <div class="mini-text">Korea University (BA)</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main">
+          <section id="about" class="card section">
+            <h2>About</h2>
+            <p>
+              Hello! I am Ph.D. candidate in Epidemiologic Science at the University of Michigan, advised by Carrie
+              Karvonen-Gutierrez. I am supported by a KFAS PhD Fellowship for up to 5 years of my PhD program. I
+              obtained my B.A. in Public Health (Health Policy and Management) and M.S. in Public Health Sciences
+              (Concentration: Epidemiology and Risk Management) from Korea University, where I was fortunate to
+              be advised by Hannah Oh.
+            </p>
+          </section>
+
+          <section id="news" class="card section">
+            <h2>News</h2>
+            <ul class="list">
+              <li class="news-item">
+                <div class="news-date">Oct 2023</div>
+                <div class="news-text">Delighted to share that I've been selected for a speaker of oral presentation session at the annual conference of the Korean Nutrition Society!</div>
+              </li>
+              <li class="news-item">
+                <div class="news-date">Jun 2023</div>
+                <div class="news-text">Our paper has been published in BMC Public Health.</div>
+              </li>
+              <li class="news-item">
+                <div class="news-date">Apr 2023</div>
+                <div class="news-text">Two abstracts were selected for poster presentation at NUTRITION 2023!</div>
+              </li>
+              <li class="news-item">
+                <div class="news-date">Feb 2023</div>
+                <div class="news-text">
+                  I was selected as a graduate student for ASAN Public Health Policy Fellowship!
+                  <span class="pill"><i class="fa-regular fa-newspaper"></i> news</span>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section id="education" class="card section">
+            <h2>Education</h2>
+            <div class="edu">
+              <div class="row">
+                <div class="top">
+                  <div class="org">University of Michigan</div>
+                  <div class="meta">Aug. 2024 - Present</div>
+                </div>
+                <div class="desc">Ph.D. in Epidemiologic Sciences | Advisor: Carrie Karvonen-Gutierrez</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Korea University</div>
+                  <div class="meta">Mar. 2021 - Feb. 2024</div>
+                </div>
+                <div class="desc">M.S. in Public Health Sciences (Epidemiology and Risk Management) | Advisor: Hannah Oh</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Korea University</div>
+                  <div class="meta">Mar. 2017 - Feb. 2021</div>
+                </div>
+                <div class="desc">B.A. in Public Health (Health Policy and Management)</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="publications" class="card section">
+            <h2>Publications</h2>
+
+            <div class="pub-year">2025</div>
+            <div class="pub">
+              <div class="pub-item">
+                <div class="pub-title">Ultra-processed food intake and risk of type 2 diabetes: a pooled analysis of three prospective cohorts of Korean adults and an updated meta-analysis</div>
+                <div class="pub-authors">Yujin Kim, Yoonkyoung Cho, Bonjae Koo, Zhangling Chen, Qi Sun, Hannah Oh</div>
+                <div class="pub-venue">
+                  <span>European Journal of Epidemiology</span>
+                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                </div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">Ultra-Processed Food Intake and Risk of Type 2 Diabetes Mellitus: A Dose-Response Meta-Analysis of Prospective Studies</div>
+                <div class="pub-authors">Yujin Kim, Yoonkyoung Cho, Jin Eui Kim, Dong Hoon Lee, Hannah Oh</div>
+                <div class="pub-venue">
+                  <span>Diabetes and Metabolism Journal</span>
+                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pub-year">2024</div>
+            <div class="pub">
+              <div class="pub-item">
+                <div class="pub-title">Recreational screen time and obesity risk in Korean children: a 3-year prospective cohort study</div>
+                <div class="pub-authors">Hajin Jang*, Yoonkyoung Cho*, Hannah Oh (*co-first author)</div>
+                <div class="pub-venue">
+                  <span>International Journal of Behavioral Nutrition and Physical Activity</span>
+                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pub-year">2023</div>
+            <div class="pub">
+              <div class="pub-item">
+                <div class="pub-title">Ultra-processed food intake and risk of type 2 diabetes in Korean adults</div>
+                <div class="pub-authors">Yoonkyoung Cho*, Seaun Ryu*, Rockli Kim, Min-Jeong Shin, Hannah Oh (*co-first author)</div>
+                <div class="pub-venue">
+                  <span>The Journal of Nutrition</span>
+                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                </div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">Aerobic, muscle-strengthening, and flexibility physical activity and risks of all-cause and cause-specific mortality: a population-based prospective cohort of Korean adults</div>
+                <div class="pub-authors">Yoonkyoung Cho, Hajin Jang, Sohyeon Kwon, Hannah Oh</div>
+                <div class="pub-venue">
+                  <span>BMC Public Health</span>
+                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pub-year">2022</div>
+            <div class="pub">
+              <div class="pub-item">
+                <div class="pub-title">Early-life body fatness in relation to breast, endometrial, and ovarian cancers: a dose-response meta-analysis of prospective studies</div>
+                <div class="pub-authors">Dohyun Byun, SungEun Hong, Seaun Ryu, Yeonju Nam, Hajin Jang, Yoonkyoung Cho, NaNa Keum, Hannah Oh</div>
+                <div class="pub-venue">
+                  <span>British Journal of Cancer</span>
+                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="presentations" class="card section">
+            <h2>Oral Presentations</h2>
+            <div class="pub">
+              <div class="pub-item">
+                <div class="pub-title">Ultra-processed food intake and type 2 diabetes: a pooled analysis of 3 population-based prospective cohorts</div>
+                <div class="pub-authors">Yoonkyoung Cho, Hannah Oh</div>
+                <div class="pub-venue"><span>2023 The Korean Nutrition Society Annual International Conference</span></div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">Aerobic, Muscle-Strengthening, and Flexibility Physical Activity in Relation to All-Cause and Cancer Mortality: A Population-Based Prospective Cohort Study in Korea</div>
+                <div class="pub-authors">Yoonkyoung Cho, Hannah Oh</div>
+                <div class="pub-venue"><span>NUTRITION 2022 LIVE ONLINE (American Society for Nutrition)</span></div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">Sarcopenic Obesity, Metabolic Syndrome, and Mortality: the KoGES Mortality Follow-up Study</div>
+                <div class="pub-authors">Yoonkyoung Cho, Hannah Oh</div>
+                <div class="pub-venue"><span>5th APCMS Congress (Korean Society of Cardiometabolic Syndrome)</span></div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Poster Presentations</h2>
+            <div class="pub">
+              <div class="pub-item">
+                <div class="pub-title">Television, Computer, Smartphone Use, and Obesity Risk: A 3-Year Follow-Up Study</div>
+                <div class="pub-authors">Yoonkyoung Cho, Hajin Jang, Hannah Oh</div>
+                <div class="pub-venue"><span>NUTRITION 2023 (American Society for Nutrition)</span></div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">Screen Time and Obesity in Adolescents: An Isotemporal Substitution Analysis</div>
+                <div class="pub-authors">Yoonkyoung Cho, Hajin Jang, Hannah Oh</div>
+                <div class="pub-venue"><span>NUTRITION 2023 (American Society for Nutrition)</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section id="vitae" class="card section">
+            <h2>Vitae</h2>
+            <p>
+              Full CV in PDF.
+              <a class="tag" href="#" title="Link your CV PDF here"><i class="fa-solid fa-download"></i> Download</a>
+            </p>
+            <div class="divider"></div>
+            <p style="color: var(--muted); margin: 0;">
+              Last updated on April 23, 2022
+              <span style="margin-left: 10px; color: #98a2b3;">( * indicates equal contribution )</span>
+            </p>
+          </section>
+
+          <section id="experience" class="card section">
+            <h2>Experience</h2>
+            <div class="edu">
+              <div class="row">
+                <div class="top">
+                  <div class="org">Ph.D. in Epidemiologic Science, University of Michigan</div>
+                  <div class="meta">Aug. 2024 - Present</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Researcher (Cancer Epidemiology Branch), National Cancer Center Korea</div>
+                  <div class="meta">Feb. 2023 - Jun. 2023</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Researcher, Center for ICT and Society</div>
+                  <div class="meta">Sep. 2022 - Aug. 2023</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">M.S. in Public Health Sciences, Korea University</div>
+                  <div class="meta">Mar. 2021 - Feb. 2024</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Chronic Disease Epidemiology Lab | Research Intern</div>
+                  <div class="meta">Mar. 2019 - Dec. 2020</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Epidemiology Lab</div>
+                  <div class="meta">Mar. 2019 - Dec. 2020</div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">B.A. in Public Health, Korea University</div>
+                  <div class="meta">Mar. 2017 - Feb. 2021</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="card footer">
+            <div>© <span id="year"></span> Yoonkyoung Cho</div>
+            <div>
+              Built with plain HTML and CSS
+              <span style="margin-left: 10px; color: #98a2b3;">No framework</span>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
