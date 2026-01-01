@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Yoonkyoung Cho - Academic Homepage</title>
-    <meta name="description" content="Academic homepage of Yoonkyoung Cho" />
+    <title>Hajin Jang - Academic Homepage</title>
+    <meta name="description" content="Academic homepage of Hajin Jang" />
 
     <!-- Icons (Font Awesome) -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
@@ -23,13 +23,10 @@
         --card: #ffffff;
         --shadow: 0 6px 20px rgba(16, 24, 40, 0.08);
         --accent: #0b76ff;
-        --accent-2: #111827;
         --radius: 14px;
         --max: 1100px;
         --sidebar: 340px;
-        --space: 18px;
-        --space-lg: 26px;
-        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        --font: "Aptos", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
         --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       }
 
@@ -39,7 +36,7 @@
         margin: 0;
         font-family: var(--font);
         color: var(--text);
-        background: linear-gradient(180deg, #fafbff, #ffffff 180px);
+        background: #ffffff; /* 1) plain white background */
       }
 
       a{ color: inherit; text-decoration: none; }
@@ -88,19 +85,20 @@
         margin: 0 0 14px 0;
         color: var(--muted);
         font-weight: 550;
+        line-height: 1.35;
       }
 
-      .email{
-        display: inline-flex;
+      .contact-line{
+        display: flex;
         align-items: center;
         gap: 10px;
         padding: 10px 12px;
         border: 1px solid var(--border);
         border-radius: 12px;
-        background: #fbfbfd;
+        background: #ffffff;
         width: 100%;
       }
-      .email .addr{
+      .contact-line .text{
         font-family: var(--mono);
         font-size: 13px;
         color: #1f2937;
@@ -138,7 +136,7 @@
       .mini-item{
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 6px;
         padding: 10px 0;
       }
       .mini-date{
@@ -147,8 +145,9 @@
         font-family: var(--mono);
       }
       .mini-text{
-        font-weight: 600;
+        font-weight: 650;
         color: #111827;
+        line-height: 1.35;
       }
 
       /* Main */
@@ -161,7 +160,6 @@
       .section{
         padding: 22px 22px 16px 22px;
       }
-      .section + .section{ margin-top: 0; }
 
       .section h2{
         margin: 0 0 12px 0;
@@ -170,7 +168,7 @@
       }
       .section p{
         margin: 0;
-        line-height: 1.65;
+        line-height: 1.7;
         color: #1f2937;
       }
 
@@ -180,47 +178,8 @@
         margin: 18px 0;
       }
 
-      /* News list */
-      .list{
-        display: grid;
-        gap: 10px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      .news-item{
-        display: grid;
-        grid-template-columns: 80px 1fr;
-        gap: 12px;
-        padding: 10px 12px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: #ffffff;
-      }
-      .news-date{
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 12px;
-        padding-top: 2px;
-      }
-      .news-text{
-        color: #111827;
-        font-weight: 560;
-      }
-      .pill{
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 5px 10px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        font-size: 12px;
-        color: #374151;
-        background: #fbfbfd;
-      }
-
-      /* Education rows */
-      .edu{
+      /* Rows */
+      .block{
         display: grid;
         gap: 12px;
       }
@@ -301,6 +260,15 @@
         font-weight: 650;
       }
 
+      /* List */
+      ul.clean{
+        margin: 0;
+        padding-left: 18px;
+        color: #1f2937;
+        line-height: 1.7;
+      }
+      ul.clean li{ margin: 6px 0; }
+
       /* Footer */
       .footer{
         padding: 14px 22px;
@@ -334,23 +302,26 @@
         }
       }
 
-      /* Subtle scroll offset for anchors */
       section{ scroll-margin-top: 16px; }
     </style>
   </head>
 
   <body>
     <div class="container">
+      <!-- Mobile top nav (News removed) -->
       <div class="topnav">
         <div class="card">
           <div class="jump">
             <a href="#about">About</a>
-            <a href="#news">News</a>
+            <a href="#interests">Academic Interests</a>
             <a href="#education">Education</a>
+            <a href="#appointments">Appointments</a>
             <a href="#publications">Publications</a>
             <a href="#presentations">Presentations</a>
-            <a href="#vitae">Vitae</a>
-            <a href="#experience">Experience</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#service">Service</a>
+            <a href="#courses">Courses</a>
+            <a href="#vitae">CV (PDF)</a>
           </div>
         </div>
       </div>
@@ -359,24 +330,36 @@
         <!-- Sidebar -->
         <aside class="sidebar">
           <div class="card">
-            <h1 class="name">Yoonkyoung Cho</h1>
-            <p class="role">PhD candidate at the University of Michigan</p>
+            <h1 class="name">Hajin Jang, MPH</h1>
+            <p class="role">
+              PhD Candidate in Epidemiology (expected 2026)<br />
+              University of Pittsburgh
+            </p>
 
-            <a class="email" href="mailto:yoonkcho@umich.edu" aria-label="Email">
+            <a class="contact-line" href="mailto:Haj90@pitt.edu" aria-label="Email">
               <i class="fa-regular fa-envelope"></i>
-              <span class="addr">yoonkcho@umich.edu</span>
+              <span class="text">Haj90@pitt.edu</span>
             </a>
 
+            <div class="contact-line" style="margin-top: 10px;" aria-label="Location">
+              <i class="fa-solid fa-location-dot"></i>
+              <span class="text" title="348 Bellefield Professional Building, 130 N Bellefield Ave, Pittsburgh, PA">
+                Pittsburgh, PA (Bellefield Professional Building)
+              </span>
+            </div>
+
             <div class="icon-row" aria-label="Links">
-              <!-- Replace # with your real links -->
-              <a class="icon-btn" href="#" title="Download CV (PDF)">
+              <!-- Put your CV PDF at repo root with this exact filename -->
+              <a class="icon-btn" href="CV_Hajin%20Jang_102425.pdf" title="Download CV (PDF)">
                 <i class="fa-solid fa-download"></i>
+              </a>
+
+              <!-- Replace # with your actual links -->
+              <a class="icon-btn" href="#" title="Website">
+                <i class="fa-solid fa-globe"></i>
               </a>
               <a class="icon-btn" href="#" title="Google Scholar">
                 <i class="fa-brands fa-google-scholar"></i>
-              </a>
-              <a class="icon-btn" href="#" title="ORCID">
-                <i class="fa-brands fa-orcid"></i>
               </a>
               <a class="icon-btn" href="#" title="LinkedIn">
                 <i class="fa-brands fa-linkedin-in"></i>
@@ -388,16 +371,16 @@
 
             <div class="mini-timeline" aria-label="Quick timeline">
               <div class="mini-item">
-                <div class="mini-date">Aug. 2024 - Present</div>
-                <div class="mini-text">University of Michigan</div>
+                <div class="mini-date">2023 - 2026 (expected)</div>
+                <div class="mini-text">PhD, Epidemiology, University of Pittsburgh</div>
               </div>
               <div class="mini-item">
-                <div class="mini-date">Mar. 2021 - Feb. 2024</div>
-                <div class="mini-text">Korea University (MS)</div>
+                <div class="mini-date">2020 - 2022</div>
+                <div class="mini-text">MPH, Epidemiology and Risk Management, Korea University</div>
               </div>
               <div class="mini-item">
-                <div class="mini-date">Mar. 2017 - Feb. 2021</div>
-                <div class="mini-text">Korea University (BA)</div>
+                <div class="mini-date">2015 - 2020</div>
+                <div class="mini-text">BA, Health Policy and Management; BEcon, Statistics (double major), Korea University</div>
               </div>
             </div>
           </div>
@@ -408,157 +391,233 @@
           <section id="about" class="card section">
             <h2>About</h2>
             <p>
-              Hello! I am Ph.D. candidate in Epidemiologic Science at the University of Michigan, advised by Carrie
-              Karvonen-Gutierrez. I am supported by a KFAS PhD Fellowship for up to 5 years of my PhD program. I
-              obtained my B.A. in Public Health (Health Policy and Management) and M.S. in Public Health Sciences
-              (Concentration: Epidemiology and Risk Management) from Korea University, where I was fortunate to
-              be advised by Hannah Oh.
+              I am a PhD candidate in Epidemiology at the University of Pittsburgh (expected 2026) and a pre-doctoral trainee
+              and graduate student researcher at the Center for Aging and Population Health (CAPH). My work focuses on
+              healthy aging, body composition (obesity, sarcopenia), and fall-related outcomes, with an emphasis on
+              cross-cohort harmonization.
             </p>
           </section>
 
-          <section id="news" class="card section">
-            <h2>News</h2>
-            <ul class="list">
-              <li class="news-item">
-                <div class="news-date">Oct 2023</div>
-                <div class="news-text">Delighted to share that I've been selected for a speaker of oral presentation session at the annual conference of the Korean Nutrition Society!</div>
-              </li>
-              <li class="news-item">
-                <div class="news-date">Jun 2023</div>
-                <div class="news-text">Our paper has been published in BMC Public Health.</div>
-              </li>
-              <li class="news-item">
-                <div class="news-date">Apr 2023</div>
-                <div class="news-text">Two abstracts were selected for poster presentation at NUTRITION 2023!</div>
-              </li>
-              <li class="news-item">
-                <div class="news-date">Feb 2023</div>
-                <div class="news-text">
-                  I was selected as a graduate student for ASAN Public Health Policy Fellowship!
-                  <span class="pill"><i class="fa-regular fa-newspaper"></i> news</span>
-                </div>
-              </li>
+          <section id="interests" class="card section">
+            <h2>Academic Interests</h2>
+            <ul class="clean">
+              <li>Healthy aging, obesity, sarcopenia, and body composition</li>
+              <li>Fall injuries and fractures</li>
+              <li>Cross-cohort harmonization</li>
             </ul>
           </section>
 
           <section id="education" class="card section">
-            <h2>Education</h2>
-            <div class="edu">
+            <h2>Education and Training</h2>
+            <div class="block">
               <div class="row">
                 <div class="top">
-                  <div class="org">University of Michigan</div>
-                  <div class="meta">Aug. 2024 - Present</div>
+                  <div class="org">University of Pittsburgh</div>
+                  <div class="meta">2023 - 2026 (expected)</div>
                 </div>
-                <div class="desc">Ph.D. in Epidemiologic Sciences | Advisor: Carrie Karvonen-Gutierrez</div>
+                <div class="desc">PhD in Epidemiology (expected 2026) | Pittsburgh, PA</div>
               </div>
 
               <div class="row">
                 <div class="top">
                   <div class="org">Korea University</div>
-                  <div class="meta">Mar. 2021 - Feb. 2024</div>
+                  <div class="meta">2020 - 2022</div>
                 </div>
-                <div class="desc">M.S. in Public Health Sciences (Epidemiology and Risk Management) | Advisor: Hannah Oh</div>
+                <div class="desc">MPH in Epidemiology and Risk Management | Seoul, Korea</div>
               </div>
 
               <div class="row">
                 <div class="top">
                   <div class="org">Korea University</div>
-                  <div class="meta">Mar. 2017 - Feb. 2021</div>
+                  <div class="meta">2015 - 2020</div>
                 </div>
-                <div class="desc">B.A. in Public Health (Health Policy and Management)</div>
+                <div class="desc">BA in Health Policy and Management; BEcon in Statistics (double major) | Seoul, Korea</div>
               </div>
             </div>
+          </section>
+
+          <section id="appointments" class="card section">
+            <h2>Appointments and Positions</h2>
+            <div class="block">
+              <div class="row">
+                <div class="top">
+                  <div class="org">Pre-doctoral Trainee, Graduate Student Researcher</div>
+                  <div class="meta">2023 - Present</div>
+                </div>
+                <div class="desc">Center for Aging and Population Health (CAPH), University of Pittsburgh</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Research Assistant</div>
+                  <div class="meta">2019 - 2022</div>
+                </div>
+                <div class="desc">Chronic Disease Epidemiology Lab, Korea University</div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Membership</h2>
+            <div class="block">
+              <div class="row">
+                <div class="top">
+                  <div class="org">American Society for Bone and Mineral Research (ASBMR)</div>
+                  <div class="meta">2023 -</div>
+                </div>
+                <div class="desc">In-training Member</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">American Society for Nutrition (ASN)</div>
+                  <div class="meta">2021 - 2022</div>
+                </div>
+                <div class="desc">Student Graduate Member</div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Honors</h2>
+            <ul class="clean">
+              <li>2024 Young Investigator Travel Grant, American Society of Bone and Mineral Research</li>
+              <li>2022 Outstanding Dissertation Award, Korea University (Brain Korea 21)</li>
+              <li>2021 Brain Korea 21 Research Grant Contest, Korea University (Brain Korea 21)</li>
+            </ul>
           </section>
 
           <section id="publications" class="card section">
             <h2>Publications</h2>
 
-            <div class="pub-year">2025</div>
             <div class="pub">
               <div class="pub-item">
-                <div class="pub-title">Ultra-processed food intake and risk of type 2 diabetes: a pooled analysis of three prospective cohorts of Korean adults and an updated meta-analysis</div>
-                <div class="pub-authors">Yujin Kim, Yoonkyoung Cho, Bonjae Koo, Zhangling Chen, Qi Sun, Hannah Oh</div>
+                <div class="pub-title">
+                  Chrononutrition Patterns in People Who Attempted Weight Loss in the Past Year: A Descriptive Analysis of NHANES 2017-2020 Pre-Pandemic
+                </div>
+                <div class="pub-authors">Kim N*, Jang H*, Hawkins H. (*Co-first authors)</div>
                 <div class="pub-venue">
-                  <span>European Journal of Epidemiology</span>
-                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                  <span>Dietetics. 2025 Jun 3. 4(2):24.</span>
                 </div>
               </div>
 
               <div class="pub-item">
-                <div class="pub-title">Ultra-Processed Food Intake and Risk of Type 2 Diabetes Mellitus: A Dose-Response Meta-Analysis of Prospective Studies</div>
-                <div class="pub-authors">Yujin Kim, Yoonkyoung Cho, Jin Eui Kim, Dong Hoon Lee, Hannah Oh</div>
+                <div class="pub-title">Screen time and obesity prevalence in adolescents: an isotemporal substitution analysis</div>
+                <div class="pub-authors">Byun D, Kim Y, Jang H, Oh H.</div>
                 <div class="pub-venue">
-                  <span>Diabetes and Metabolism Journal</span>
-                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                  <span>BMC Public Health. 2024 Nov 12. 24(1):3130.</span>
                 </div>
               </div>
-            </div>
 
-            <div class="pub-year">2024</div>
-            <div class="pub">
               <div class="pub-item">
                 <div class="pub-title">Recreational screen time and obesity risk in Korean children: a 3-year prospective cohort study</div>
-                <div class="pub-authors">Hajin Jang*, Yoonkyoung Cho*, Hannah Oh (*co-first author)</div>
+                <div class="pub-authors">Jang H, Cho Y, Oh H.</div>
                 <div class="pub-venue">
-                  <span>International Journal of Behavioral Nutrition and Physical Activity</span>
-                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                  <span>International Journal of Behavioral Nutrition and Physical Activity. 2024 Sep 30. 21(1):112.</span>
+                </div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">
+                  Aerobic, muscle-strengthening, and flexibility physical activity and risks of all-cause and cause-specific mortality: a population-based prospective cohort of Korean adults
+                </div>
+                <div class="pub-authors">Cho Y, Jang H, Kwon S, Oh H.</div>
+                <div class="pub-venue">
+                  <span>BMC Public Health. 2023 Jun 14. 23(1):1148.</span>
+                </div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">
+                  Overall and Abdominal Obesity and Risks of All-Cause and Cause-Specific Mortality in Korean Adults: A Pooled Analysis of Three Population-Based Prospective Cohorts
+                </div>
+                <div class="pub-authors">Jang H, Kim R, Lee J, Lee D, Giovannucci E, Oh H.</div>
+                <div class="pub-venue">
+                  <span>International Journal of Epidemiology. 2023 Aug 2. 52(4):1060-1073.</span>
+                </div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">Smartphone Usage Patterns and Dietary Risk Factors in Adolescents</div>
+                <div class="pub-authors">Ryu S, Jang H, Oh H.</div>
+                <div class="pub-venue">
+                  <span>The Journal of Nutrition. 2022 Sep 6. 152(9):2109-2116.</span>
+                </div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">
+                  Early-life body mass index and risks of breast, endometrial, and ovarian cancers: a dose-response meta-analysis of prospective studies
+                </div>
+                <div class="pub-authors">Byun D, Hong S, Ryu S, Nam Y, Jang H, Cho Y, Keum N, Oh H.</div>
+                <div class="pub-venue">
+                  <span>British Journal of Cancer. 2022 Nov 12. 126(4):664-672.</span>
+                </div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">
+                  Trends and Inequalities in Overall and Abdominal Obesity by Sociodemographic Factors in Korean Adults, 1998-2018
+                </div>
+                <div class="pub-authors">Jang H, Oh H.</div>
+                <div class="pub-venue">
+                  <span>International Journal of Environmental Research and Public Health. 2021 Apr 14. 18(8):4162.</span>
                 </div>
               </div>
             </div>
 
-            <div class="pub-year">2023</div>
+            <div class="divider"></div>
+
+            <h2>Working Papers</h2>
             <div class="pub">
               <div class="pub-item">
-                <div class="pub-title">Ultra-processed food intake and risk of type 2 diabetes in Korean adults</div>
-                <div class="pub-authors">Yoonkyoung Cho*, Seaun Ryu*, Rockli Kim, Min-Jeong Shin, Hannah Oh (*co-first author)</div>
+                <div class="pub-title">
+                  Associations of Obesity Phenotypes with Incident Fall Rates: Results from the Objective Physical Activity and Cardiovascular Health in Older Women (OPACH)
+                </div>
+                <div class="pub-authors">
+                  Jang H, Crandall CJ, Gore S, Hu C, LaCroix AZ, LaMonte MJ, Liu L, Freeland KS, Cauley JA, Stefanick ML, Schumacher BT, Strotmeyer ES.
+                </div>
                 <div class="pub-venue">
-                  <span>The Journal of Nutrition</span>
-                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                  <span>Under review (2025)</span>
                 </div>
               </div>
 
               <div class="pub-item">
-                <div class="pub-title">Aerobic, muscle-strengthening, and flexibility physical activity and risks of all-cause and cause-specific mortality: a population-based prospective cohort of Korean adults</div>
-                <div class="pub-authors">Yoonkyoung Cho, Hajin Jang, Sohyeon Kwon, Hannah Oh</div>
-                <div class="pub-venue">
-                  <span>BMC Public Health</span>
-                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                <div class="pub-title">
+                  Association of Actigraphy-Measured Rest-Activity Rhythms with Obesity Phenotypes in the Osteoporotic Fractures in Men (MrOS) Study
                 </div>
-              </div>
-            </div>
-
-            <div class="pub-year">2022</div>
-            <div class="pub">
-              <div class="pub-item">
-                <div class="pub-title">Early-life body fatness in relation to breast, endometrial, and ovarian cancers: a dose-response meta-analysis of prospective studies</div>
-                <div class="pub-authors">Dohyun Byun, SungEun Hong, Seaun Ryu, Yeonju Nam, Hajin Jang, Yoonkyoung Cho, NaNa Keum, Hannah Oh</div>
+                <div class="pub-authors">
+                  Jang H*, Song Y*, Kim N*, Strotmeyer ES, Glynn NW. (*Co-first authors)
+                </div>
                 <div class="pub-venue">
-                  <span>British Journal of Cancer</span>
-                  <a class="tag" href="#" title="Paper link"><i class="fa-regular fa-file-lines"></i> Paper</a>
+                  <span>Under review (2025)</span>
                 </div>
               </div>
             </div>
           </section>
 
           <section id="presentations" class="card section">
+            <h2>Presentations</h2>
+
+            <div class="divider"></div>
             <h2>Oral Presentations</h2>
             <div class="pub">
               <div class="pub-item">
-                <div class="pub-title">Ultra-processed food intake and type 2 diabetes: a pooled analysis of 3 population-based prospective cohorts</div>
-                <div class="pub-authors">Yoonkyoung Cho, Hannah Oh</div>
-                <div class="pub-venue"><span>2023 The Korean Nutrition Society Annual International Conference</span></div>
+                <div class="pub-title">Associations of Obesity Phenotypes with Incident and Recurrent Falls in Older Adults: A Cross-Cohort Analysis</div>
+                <div class="pub-authors">Jang H, Freeland KS, Heilmann NZ, Langer LR, Roberts JE, Ensrud KE, LaCroix AZ, Schousboe JT, Newman AB, Cauley JA, Strotmeyer ES.</div>
+                <div class="pub-venue"><span>ASBMR 2025 Annual Meeting. 2025 Sep 5-8.</span></div>
               </div>
 
               <div class="pub-item">
-                <div class="pub-title">Aerobic, Muscle-Strengthening, and Flexibility Physical Activity in Relation to All-Cause and Cancer Mortality: A Population-Based Prospective Cohort Study in Korea</div>
-                <div class="pub-authors">Yoonkyoung Cho, Hannah Oh</div>
-                <div class="pub-venue"><span>NUTRITION 2022 LIVE ONLINE (American Society for Nutrition)</span></div>
+                <div class="pub-title">Obesity and Mortality in a Pooled Analysis of Three Prospective Cohorts of Korean Adults: Is Obesity Paradox the BMI Paradox?</div>
+                <div class="pub-authors">Jang H, Kim R, Lee JT, Lee DH, Giovannucci E, Oh H.</div>
+                <div class="pub-venue"><span>NUTRITION 2022 LIVE ONLINE. 2022 Jun 14.</span></div>
               </div>
 
               <div class="pub-item">
-                <div class="pub-title">Sarcopenic Obesity, Metabolic Syndrome, and Mortality: the KoGES Mortality Follow-up Study</div>
-                <div class="pub-authors">Yoonkyoung Cho, Hannah Oh</div>
-                <div class="pub-venue"><span>5th APCMS Congress (Korean Society of Cardiometabolic Syndrome)</span></div>
+                <div class="pub-title">Obesity Transition and Inequalities by Sociodemographic Factors in Korean Adults, 1998-2018</div>
+                <div class="pub-authors">Jang H, Oh H.</div>
+                <div class="pub-venue"><span>NUTRITION 2021 LIVE ONLINE. 2021 Jun 7.</span></div>
               </div>
             </div>
 
@@ -567,92 +626,124 @@
             <h2>Poster Presentations</h2>
             <div class="pub">
               <div class="pub-item">
-                <div class="pub-title">Television, Computer, Smartphone Use, and Obesity Risk: A 3-Year Follow-Up Study</div>
-                <div class="pub-authors">Yoonkyoung Cho, Hajin Jang, Hannah Oh</div>
-                <div class="pub-venue"><span>NUTRITION 2023 (American Society for Nutrition)</span></div>
+                <div class="pub-title">Associations of Obesity Phenotypes with Incident Fall Rates: Results from OPACH</div>
+                <div class="pub-authors">Jang H, Crandall CJ, Gore S, Hu C, LaCroix AZ, LaMonte MJ, Liu L, Freeland KS, Cauley JA, Stefanick ML, Schumacher BT, Strotmeyer ES.</div>
+                <div class="pub-venue">
+                  <span>ASBMR 2024 Annual Meeting. Toronto, ON, Canada. 2024 Sep 27. Plenary poster; invited symposium on energy metabolism in skeletal development and disease.</span>
+                </div>
               </div>
 
               <div class="pub-item">
-                <div class="pub-title">Screen Time and Obesity in Adolescents: An Isotemporal Substitution Analysis</div>
-                <div class="pub-authors">Yoonkyoung Cho, Hajin Jang, Hannah Oh</div>
-                <div class="pub-venue"><span>NUTRITION 2023 (American Society for Nutrition)</span></div>
+                <div class="pub-title">The Joint Effects of Obesity and Physical Activity on All-cause and Cardiovascular Mortality: ‘Fat but Fit’ Hypothesis</div>
+                <div class="pub-authors">Jang H, Oh H.</div>
+                <div class="pub-venue"><span>5th APCMS Congress. 2022 Apr 29. Outstanding Abstract Award Winner.</span></div>
+              </div>
+
+              <div class="pub-item">
+                <div class="pub-title">Alcohol Drinking and Cardiovascular Risk Factors in Korean Adults: Age-Period-Cohort and Association Analyses</div>
+                <div class="pub-authors">Jang H, Shin M, Oh H.</div>
+                <div class="pub-venue"><span>4th APCMS Congress. 2021 Apr 23. Outstanding Abstract Award Winner.</span></div>
               </div>
             </div>
+          </section>
+
+          <section id="teaching" class="card section">
+            <h2>Teaching Experience</h2>
+            <div class="block">
+              <div class="row">
+                <div class="top">
+                  <div class="org">Teaching Assistant, Principles of Epidemiology (Graduate)</div>
+                  <div class="meta">2025</div>
+                </div>
+                <div class="desc">University of Pittsburgh (Instructor: Thomas J Songer)</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Teaching Assistant, Advanced Epidemiology of Aging (Graduate)</div>
+                  <div class="meta">2025</div>
+                </div>
+                <div class="desc">University of Pittsburgh (Instructor: Jane A Cauley)</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Teaching Assistant, Principles of Epidemiology (English/Graduate)</div>
+                  <div class="meta">2021</div>
+                </div>
+                <div class="desc">Korea University (Instructor: Hannah Oh)</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Teaching Assistant, Case Studies in Epidemiology (English/Graduate)</div>
+                  <div class="meta">2020</div>
+                </div>
+                <div class="desc">Korea University (Instructor: Hannah Oh)</div>
+              </div>
+
+              <div class="row">
+                <div class="top">
+                  <div class="org">Teaching Assistant, Foundations and Principles of Health Promotion (English/Undergraduate)</div>
+                  <div class="meta">2020</div>
+                </div>
+                <div class="desc">Korea University (Instructor: Hannah Oh)</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="service" class="card section">
+            <h2>Service</h2>
+            <p style="color:#1f2937;">Manuscript and publication review</p>
+            <ul class="clean">
+              <li>Scientific Reports (2025)</li>
+              <li>BMC Geriatrics (2025)</li>
+              <li>BMC Geriatrics (2024)</li>
+              <li>Scientific Reports (2024)</li>
+              <li>Lipids in Health and Disease (2024)</li>
+              <li>BMC Geriatrics (2024)</li>
+            </ul>
+          </section>
+
+          <section id="courses" class="card section">
+            <h2>Selected Coursework</h2>
+            <p style="color:#1f2937; margin-bottom: 10px;">PhD in Epidemiology, University of Pittsburgh (2023-2025)</p>
+            <p style="color:#374151; line-height: 1.7; margin: 0;">
+              Introduction to Statistical Methods, Applied Regression Analysis, Longitudinal and Clustered Data Analysis,
+              Pathophysiology Across the Life Span, Principles of Epidemiology, Analytic Methods of Physical Activity,
+              Epidemiology of Infectious Diseases, Chronic Disease Epidemiology, Fundamentals of Epidemiological Methods,
+              Design and Conduct of Clinical Trials, Introduction to SAS, Epidemiological Methods of Longitudinal and Time-to-Event Analysis,
+              Causal Inference of Epidemiological Research, Machine Learning and Analysis in Epidemiology Research, Independent Study,
+              Teaching Practicum, Secondary Data Analysis (Capstone), Seminar in Epidemiology, Epidemiological Basis and Disease Control,
+              Introduction to Molecular Epidemiology, Advanced Epidemiology Methods of Aging, Grant Writing, Research Ethics.
+            </p>
+
+            <div class="divider"></div>
+
+            <p style="color:#1f2937; margin-bottom: 10px;">MPH in Epidemiology, Korea University (2020-2022)</p>
+            <p style="color:#374151; line-height: 1.7; margin: 0;">
+              Math for Health Scientists, Biostatistics, Health and International Development, Epidemiologic Methods,
+              Introduction to Precision Public Health, Case Studies in Epidemiology, Multivariate Data Analysis Using STATA,
+              Machine Learning, Precision Public Health Practicum, Social Determinants of Global Health.
+            </p>
           </section>
 
           <section id="vitae" class="card section">
-            <h2>Vitae</h2>
+            <h2>CV (PDF)</h2>
             <p>
-              Full CV in PDF.
-              <a class="tag" href="#" title="Link your CV PDF here"><i class="fa-solid fa-download"></i> Download</a>
+              Download the full CV here:
+              <a class="tag" href="CV_Hajin%20Jang_102425.pdf" title="Download CV PDF">
+                <i class="fa-solid fa-download"></i> Download
+              </a>
             </p>
-            <div class="divider"></div>
-            <p style="color: var(--muted); margin: 0;">
-              Last updated on April 23, 2022
-              <span style="margin-left: 10px; color: #98a2b3;">( * indicates equal contribution )</span>
+            <p style="color: var(--muted); margin-top: 10px; font-size: 13px;">
+              Last updated: Oct 24, 2025 (per uploaded CV)
             </p>
-          </section>
-
-          <section id="experience" class="card section">
-            <h2>Experience</h2>
-            <div class="edu">
-              <div class="row">
-                <div class="top">
-                  <div class="org">Ph.D. in Epidemiologic Science, University of Michigan</div>
-                  <div class="meta">Aug. 2024 - Present</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="top">
-                  <div class="org">Researcher (Cancer Epidemiology Branch), National Cancer Center Korea</div>
-                  <div class="meta">Feb. 2023 - Jun. 2023</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="top">
-                  <div class="org">Researcher, Center for ICT and Society</div>
-                  <div class="meta">Sep. 2022 - Aug. 2023</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="top">
-                  <div class="org">M.S. in Public Health Sciences, Korea University</div>
-                  <div class="meta">Mar. 2021 - Feb. 2024</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="top">
-                  <div class="org">Chronic Disease Epidemiology Lab | Research Intern</div>
-                  <div class="meta">Mar. 2019 - Dec. 2020</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="top">
-                  <div class="org">Epidemiology Lab</div>
-                  <div class="meta">Mar. 2019 - Dec. 2020</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="top">
-                  <div class="org">B.A. in Public Health, Korea University</div>
-                  <div class="meta">Mar. 2017 - Feb. 2021</div>
-                </div>
-              </div>
-            </div>
           </section>
 
           <div class="card footer">
-            <div>© <span id="year"></span> Yoonkyoung Cho</div>
-            <div>
-              Built with plain HTML and CSS
-              <span style="margin-left: 10px; color: #98a2b3;">No framework</span>
-            </div>
+            <div>© <span id="year"></span> Hajin Jang</div>
+            <div>Built with plain HTML and CSS</div>
           </div>
         </main>
       </div>
